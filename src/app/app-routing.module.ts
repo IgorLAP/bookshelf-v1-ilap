@@ -8,7 +8,7 @@ const routes: Routes = [
     //organizando o que o path cdd irá retornar
     path: 'cdd',
     //onde importar a rota | Promise()
-    loadChildren: () => import('./cdd/cdd-routing.module').then(m => m.CddRoutingModule)
+    loadChildren: () => import('./cdd/cdd.module').then(m => m.CddModule)
   }
 ];
 
