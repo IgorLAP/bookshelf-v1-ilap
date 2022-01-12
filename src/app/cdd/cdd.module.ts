@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { AppMaterialModule } from './../compartilhado/app-material.module';
+import { AppMaterialModule } from '../app-compartilhado/app-material/app-material.module';
 import { CddRoutingModule } from './cdd-routing.module';
 import { ClassesComponent } from './classes/classes.component';
 
@@ -13,7 +14,8 @@ import { ClassesComponent } from './classes/classes.component';
   imports: [
     CommonModule,
     CddRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HttpClientModule
   ],
   exports: [
     ClassesComponent
