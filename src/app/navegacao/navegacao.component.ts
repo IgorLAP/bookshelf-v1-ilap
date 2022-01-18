@@ -28,7 +28,11 @@ export class NavegacaoComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private menuNavegadorService: MenuNavegadorService) {
+  constructor
+  (
+    private breakpointObserver: BreakpointObserver,
+    private menuNavegadorService: MenuNavegadorService
+  ) {
     this.itensMenu$ = menuNavegadorService.listagemMenuNavegador()
     .pipe(
       catchError(err=>{
