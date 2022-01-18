@@ -6,7 +6,7 @@
     <mat-toolbar>{{ tituloNav }}</mat-toolbar>
     <p style="display: flex; align-items: center; margin: 0 .8rem;"><mat-icon aria-hidden="false" aria-label="Usuário">{{ usuario.icone }}</mat-icon> {{ usuario.username }}</p>
     <mat-nav-list>
-      <div *ngFor="let i of itensMenu" >
+      <div *ngFor="let i of itensMenu$ | async" >
         <a *ngIf="i.show" mat-list-item [href]="i.linkMenu">{{ i.labelMenu }}</a>
       </div>
     </mat-nav-list>
