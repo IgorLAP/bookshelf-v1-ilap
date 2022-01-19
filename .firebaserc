@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bookshelf-v1-ilap": {
+      "hosting": {
+        "bookshelf-v1-ilap": [
+          "bookshelf-v1-ilap"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bookshelf-v1-ilap"
+  }
+}

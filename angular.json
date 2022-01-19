@@ -108,6 +108,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "bookshelf-v1-ilap:build:production",
+            "firebaseProject": "bookshelf-v1-ilap",
+            "firebaseHostingSite": "bookshelf-v1-ilap"
+          }
         }
       }
     }
