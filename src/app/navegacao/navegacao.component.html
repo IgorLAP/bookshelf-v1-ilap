@@ -4,9 +4,9 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>{{ tituloNav }}</mat-toolbar>
-    <p style="display: flex; align-items: center; margin: 0 .8rem;"><mat-icon aria-hidden="false" aria-label="Usuário">{{ usuario.icone }}</mat-icon> {{ usuario.username }}</p>
+    <!-- <p style="display: flex; align-items: center; margin: 0 .8rem;"><mat-icon aria-hidden="false" aria-label="Usuário">{{ usuario.icone }}</mat-icon> {{ usuario.username }}</p> -->
     <mat-nav-list>
-      <div *ngFor="let i of itensMenu$ | async" >
+      <div *ngFor="let i of itensMenu$ | async; index as index" >
         <a *ngIf="i.show" mat-list-item [href]="i.linkMenu">{{ i.labelMenu }}</a>
       </div>
     </mat-nav-list>
@@ -22,7 +22,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <img mat-card-sm-image [width]="wIcone" [height]="hIcone" [src]="iconeGeral" >
-      <span>{{ tituloBarra }}</span>
+      <button mat-raised-button color="primary">
+        <mat-icon class="mat-18">login</mat-icon>
+        LOGIN
+      </button>
     </mat-toolbar>
 
     <router-outlet></router-outlet>

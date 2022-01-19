@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AppLoginComponent } from './app-login/app-login.component';
 import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
@@ -10,6 +11,10 @@ const routes: Routes = [
     //ROTA DE UM COMPONENTE
     path: 'feed',
     component: FeedComponent
+  },
+  {
+    path: 'login',
+    component: AppLoginComponent
   },
   {
     //ROTA DE UM MODULO

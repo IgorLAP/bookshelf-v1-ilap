@@ -19,12 +19,7 @@ export class FeedComponent {
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
-        return [
-          { title: `O melhor livro de `, img: '../../assets/images/1.png', cols: 1, rows: 1 },
-          { title: 'Dica dos leitores', img: '../../assets/images/2.png', cols: 1, rows: 1 },
-          { title: 'O mais comentado da semana', img: '../../assets/images/3.png', cols: 1, rows: 1 },
-          { title: 'Indicação do time BookShelft', img: '../../assets/images/4.png', cols: 1, rows: 1 }
-        ];
+        return [];
       }
 
       return this.dashItem$;

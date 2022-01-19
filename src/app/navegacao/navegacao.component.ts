@@ -13,9 +13,7 @@ import { MenuNavegadorService } from './../service/menu-navegador.service';
 })
 export class NavegacaoComponent {
 
-  usuario = {username: 'Igor Pedrosa', icone: 'remember_me'};
   tituloNav = 'BookShelf v1';
-  tituloBarra = '[Sua estante virtual]';
   iconeGeral = '../../assets/images/ShelfBook.png';
   wIcone = 80;
   hIcone = 80;
