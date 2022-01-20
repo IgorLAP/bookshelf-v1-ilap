@@ -1,11 +1,13 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 import { AppLoginComponent } from './../app-login/app-login.component';
 import { MenuNavegador } from './../models/menuNavegador';
+import { AuthFirebaseService } from './../service/auth-firebase.service';
 import { MenuNavegadorService } from './../service/menu-navegador.service';
 
 @Component({
@@ -15,10 +17,12 @@ import { MenuNavegadorService } from './../service/menu-navegador.service';
 })
 export class NavegacaoComponent {
 
+  usuario$ = this.authFirebase.usuarioLogado$;
   tituloNav = 'BookShelf v1';
   iconeGeral = '../../assets/images/ShelfBook.png';
   wIcone = 80;
   hIcone = 80;
+
   //Controle das rotas do menu
   itensMenu$: Observable<MenuNavegador[]>
 
@@ -32,6 +36,8 @@ export class NavegacaoComponent {
   (
     private breakpointObserver: BreakpointObserver,
     private telaLogin: MatDialog,
+    private rotas: Router,
+    private authFirebase: AuthFirebaseService,
     private menuNavegadorService: MenuNavegadorService
   ) {
     this.itensMenu$ = menuNavegadorService.listagemMenuNavegador()
@@ -45,6 +51,12 @@ export class NavegacaoComponent {
   abrirLogin(erroMsg: string){
     this.telaLogin.open(AppLoginComponent,{
       data: erroMsg
+    })
+  }
+
+  abrirLogout(){
+    this.authFirebase.logout().subscribe(()=>{
+      this.rotas.navigate([''])
     })
   }
 
