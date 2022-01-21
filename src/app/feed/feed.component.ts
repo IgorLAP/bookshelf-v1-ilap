@@ -1,9 +1,10 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { Dashboard } from './../models/dashboard';
+import { AuthFirebaseService } from './../service/auth-firebase.service';
 import { DashboardService } from './../service/dashboard.service';
 
 @Component({
@@ -13,13 +14,13 @@ import { DashboardService } from './../service/dashboard.service';
 })
 export class FeedComponent {
 
-  usuario = {username: 'Igor Pedrosa', icone: 'remember_me'}
   dashItem$: Observable<Dashboard[]>;
+  usuario$ = this.auth.usuarioLogado$;
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
-        return [];
+        return this.dashItem$;
       }
 
       return this.dashItem$;
@@ -29,7 +30,8 @@ export class FeedComponent {
   constructor
   (
     private breakpointObserver: BreakpointObserver,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private auth: AuthFirebaseService
   ) {
     this.dashItem$ = dashboardService.listagemDashboard()
     .pipe(

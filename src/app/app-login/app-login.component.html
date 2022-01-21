@@ -11,17 +11,18 @@
       <form [formGroup]="formularioLogin" (ngSubmit)="loginFirebase()">
         <mat-form-field>
           <input type="text" formControlName="email" matInput placeholder="Email">
-          <mat-error *ngIf="email?.errors?.['required']">O campo de email não pode estar vazio</mat-error>
+          <mat-error *ngIf="email?.errors?.['required']">Email é obrigátorio</mat-error>
           <mat-error *ngIf="email?.errors?.['email']">O formato do email é inválido</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input type="password" formControlName="password" matInput placeholder="Senha">
-          <mat-error *ngIf="senha?.errors?.['required']">O campo de senha não pode estar vazio</mat-error>
+          <mat-error *ngIf="password?.errors?.['required']">Senha é obrigátoria</mat-error>
         </mat-form-field>
         <mat-card-footer>
           <button mat-raised-button color="accent" type="submit">Entrar</button>
-          <button mat-button mat-dialog-close >Fechar</button>
+          <button mat-raised-button mat-dialog-close color="primary" >Fechar</button>
         </mat-card-footer>
+        <span>Você ainda <strong>não tem cadastro</strong> clique <a routerLink="/cadastro">aqui</a> e venha fazer parte desta comunidade</span>
       </form>
     </mat-card-content>
   </mat-card>

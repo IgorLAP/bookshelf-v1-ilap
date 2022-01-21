@@ -17,8 +17,8 @@ import { MenuNavegadorService } from './../service/menu-navegador.service';
 })
 export class NavegacaoComponent {
 
+  logoMenu = '../../assets/images/logoBS4.png';
   usuario$ = this.authFirebase.usuarioLogado$;
-  tituloNav = 'BookShelf v1';
   iconeGeral = '../../assets/images/ShelfBook.png';
   wIcone = 80;
   hIcone = 80;

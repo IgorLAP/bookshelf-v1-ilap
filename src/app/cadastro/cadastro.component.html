@@ -1,31 +1,31 @@
-<h1 mat-dialog-title>BookShelf Login</h1>
-<div mat-dialog-content>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title></mat-card-title>
-      <mat-card-subtitle>[Entre em sua estante virtual]</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="../../assets/images/4.png" alt="Banner do Login">
-    <mat-card-content>
-      <form [formGroup]="formularioCadastro" (ngSubmit)="enviarCadastro()">
-        <mat-form-field>
-          <input type="text" formControlName="email" matInput placeholder="Email">
-          <mat-error *ngIf="email?.errors?.['required']">O campo de email não pode estar vazio</mat-error>
-          <mat-error *ngIf="email?.errors?.['email']">O formato do email é inválido</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input type="password" formControlName="password" matInput placeholder="Senha">
-          <mat-error *ngIf="password?.errors?.['required']">O campo de senha não pode estar vazio</mat-error>
-        </mat-form-field>
-        <mat-card-footer>
-          <button mat-raised-button color="accent" type="submit">Entrar</button>
-          <button mat-button mat-dialog-close >Fechar</button>
-        </mat-card-footer>
-      </form>
-    </mat-card-content>
+
+<mat-grid-list cols="1" [rowHeight]="'100px'" [gutterSize]="'1px'">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">Cadastro no BookShelf</mat-grid-tile>
+  <mat-card>
+    <img src="../../assets/images/cover2.png" mat-card-image alt="Cover de cadastro de usuários">
+    <form [formGroup]="formularioCadastro" (ngSubmit)="enviarCadastro()">
+      <mat-form-field>
+        <input formControlName="name" matInput placeholder="Nome">
+        <mat-error *ngIf="name?.errors?.['required']">Nome é obrigatório</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="email" matInput placeholder="Email">
+        <mat-error *ngIf="email?.errors?.['required']">Email é obrigatório</mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">O formato do email é inválido</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" formControlName="password" matInput placeholder="Senha">
+        <mat-error *ngIf="password?.errors?.['required']">Senha é obrigatória</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" formControlName="confirmPassword" matInput placeholder="Confirmar senha">
+        <mat-error *ngIf="password?.errors?.['required']">Confirme sua senha</mat-error>
+        <mat-error *ngIf="formularioCadastro.errors?.['errorConfirmed']">Confirme sua senha</mat-error>
+      </mat-form-field>
+      <mat-card-footer>
+        <button mat-raised-button color="accent" type="submit">Cadastrar</button>
+        <button mat-raised-button color="primary" >Fechar</button>
+      </mat-card-footer>
+    </form>
   </mat-card>
-</div>
-
-
-
+</mat-grid-list>

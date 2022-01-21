@@ -33,8 +33,8 @@ export class AppLoginComponent {
     return this.formularioLogin.get('email');
   }
 
-  get senha(){
-    return this.formularioLogin.get('senha');
+  get password(){
+    return this.formularioLogin.get('password');
   }
 
   loginFirebase() {

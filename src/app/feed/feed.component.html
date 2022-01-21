@@ -1,5 +1,5 @@
 <div class="grid-container" >
-  <h1 class="mat-h1">Feed de Notícias: {{ usuario.username }}</h1>
+  <h1 class="mat-h1" *ngIf="usuario$ | async as user">Feed de Notícias: {{ user.displayName }}</h1>
     <mat-grid-list cols="2" rowHeight="350px">
       <mat-grid-tile *ngFor="let i of dashItem$ | async; index as index" [colspan]="i.cols" [rowspan]="i.rows">
         <mat-card class="dashboard-card">
