@@ -4,13 +4,22 @@
       <mat-grid-tile *ngFor="let i of dashItem$ | async; index as index" [colspan]="i.cols" [rowspan]="i.rows">
         <mat-card class="dashboard-card">
           <mat-card-header>
-            <mat-card-title>
-              {{i.title}}
-            </mat-card-title>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ i.title }}</mat-card-title>
+            <mat-card-subtitle>{{ i.subtitulo }}</mat-card-subtitle>
           </mat-card-header>
+          <img mat-card-image [src]="i.img" [alt]="i.title">
           <mat-card-content class="dashboard-card-content">
-            <div></div>
+            <div>{{ i.conteudo }}</div>
           </mat-card-content>
+          <mat-nav-list>
+            <mat-list-item *ngFor="let link of i.link">
+               <a matLine [href]="link.ref">{{ link.texto }}</a>
+               <button mat-icon-button>
+                  <mat-icon>info</mat-icon>
+               </button>
+            </mat-list-item>
+          </mat-nav-list>
         </mat-card>
       </mat-grid-tile>
     </mat-grid-list>
